@@ -68,6 +68,7 @@ base_y = leg_dict[curr_leg]["y"]
 base_theta = leg_dict[curr_leg]["theta"]
 x_delta = x_final - base_x
 y_delta = y_final - base_y
+z_delta = z_final - 0
 if x_delta == 0:
     if y_delta > 0:
         angle = 90
@@ -88,7 +89,7 @@ horizontal_leg = ((x_delta**2 + y_delta**2) ** .5) - hip_len
 if horizontal_leg > thigh_len + calf_len:
     print("Leg target too far")
 
-leg_distance = (horizontal_leg**2 + z_)
+leg_distance = (horizontal_leg**2 + z_delta**2) ** .5
 
 print(f"X: {x_delta}")
 print(f"Y: {y_delta}")
