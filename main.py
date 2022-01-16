@@ -86,10 +86,17 @@ elif x_delta < 0:
 
 horizontal_leg = ((x_delta**2 + y_delta**2) ** .5) - hip_len
 
-if horizontal_leg > thigh_len + calf_len:
-    print("Leg target too far")
-
 leg_distance = (horizontal_leg**2 + z_delta**2) ** .5
+
+if leg_distance > thigh_len + calf_len:
+    print("Leg target too far")
+    leg_distance = thigh_len + calf_len - 1
+
+if leg_distance + thigh_len < calf_len:
+    leg_distance =
+
+hip_ratio = (thigh_len**2 + leg_distance**2 - calf_len**2) / (2*thigh_len*leg_distance)
+hip_angle = math.acos(hip_ratio)
 
 print(f"X: {x_delta}")
 print(f"Y: {y_delta}")
